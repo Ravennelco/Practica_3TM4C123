@@ -11,7 +11,9 @@ void Delay(void){unsigned long volatile time;
 }
 
 int main(void){
-  SYSCTL->RCGC2 |= 0x00000020;
+
+  SYSCTL->RCGCGPIO |=(1<<5);
+  //SYSCTL->RCGC2 |= 0x00000020;
  // SYSCTL_RCGC2_R |= 0x00000020;     // 1) activate clock for Port F
   GPIO_PORTF_LOCK_R = 0x4C4F434B;   // 2) unlock GPIO Port F
   GPIO_PORTF_CR_R = 0x1F;           // allow changes to PF4-0
