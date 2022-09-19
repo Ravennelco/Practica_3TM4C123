@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "include.h": "c"
+        "stdint.h": "c",
+        "include.h": "c",
+        "tm4c123gh6pm.h": "c",
+        "core_cm4.h": "c"
     }
 }

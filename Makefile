@@ -53,7 +53,7 @@ IPATH+=../../..
 # The default rule, which causes the Project Zero Example to be built.
 #
 all: ${COMPILER}
-all: ${COMPILER}/project0.axf
+all: ${COMPILER}/main.axf
 
 #
 # The rule to build project with debug support.
@@ -61,7 +61,7 @@ all: ${COMPILER}/project0.axf
 
 debug: CFLAGS+=-g -D DEBUG
 debug: ${COMPILER}
-debug: ${COMPILER}/project0.axf
+debug: ${COMPILER}/main.axf
 
 #
 # The rule to clean out all the build products.
@@ -78,11 +78,11 @@ ${COMPILER}:
 #
 # Rules for building the Project Zero Example.
 #
-${COMPILER}/project0.axf: ${COMPILER}/project0.o
-${COMPILER}/project0.axf: ${COMPILER}/startup_${COMPILER}.o
-${COMPILER}/project0.axf: project0.ld
-SCATTERgcc_project0=project0.ld
-ENTRY_project0=ResetISR
+${COMPILER}/main.axf: ${COMPILER}/main.o
+${COMPILER}/main.axf: ${COMPILER}/startup_${COMPILER}.o
+${COMPILER}/main.axf: main.ld
+SCATTERgcc_main=main.ld
+ENTRY_main=ResetISR
 CFLAGSgcc=-DTARGET_IS_TM4C123_RB1
 
 #
