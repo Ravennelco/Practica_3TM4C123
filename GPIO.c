@@ -10,5 +10,14 @@ extern void Configurar_GPIO(void)
     GPIOF->AFSEL = 0x00;        // 6) disable alt funct on PF7-0
     GPIOF->PUR = 0x11;          // enable pull-up on PF0 and PF4
     GPIOF->DEN = 0x1F;          // 7) enable digital I/O on PF4-0
+}
 
+extern void Delay(void)
+{
+  unsigned long volatile time;
+  time = 1600000;
+  while(time)
+  {
+		time--;
+  }
 }
