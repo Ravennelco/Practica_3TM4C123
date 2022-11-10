@@ -7,7 +7,7 @@ extern void Configurar_UART0(void)
     //(GPIOAFSEL) pag.671 Enable alternate function
     GPIOA->AFSEL = (1<<1) | (1<<0);
     //GPIO Port Control (GPIOPCTL) PA0-> U0Rx PA1-> U0Tx pag.688
-    GPIOA->PCTL = GPIOA->PCTL&(0xFFFFFFFF) | 0x00000011;// (1<<0) | (1<<4);//0x00000011
+    GPIOA->PCTL = (GPIOA->PCTL&0xFFFFFF00) | 0x00000011;// (1<<0) | (1<<4);//0x00000011
     // GPIO Digital Enable (GPIODEN) pag.682
     GPIOA->DEN = (1<<0) | (1<<1);//PA1 PA0
     //UART0 UART Control (UARTCTL) pag.918 DISABLE!!

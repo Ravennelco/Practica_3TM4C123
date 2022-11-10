@@ -1,11 +1,10 @@
-
 #include "lib/include.h"
-
 
 int main(void)
 {
-
-    char c='a';
+    uint16_t valor = 0;
+    char c='5';
+    //char b='a';
     Configurar_PLL(_20MHZ);  //Confiuracion de velocidad de reloj
     Configurar_UART0();//Yo FCLK 20MHZ Baudrate 9600
 
@@ -21,7 +20,8 @@ int main(void)
    // Homogeneidad();
     //printString("Holis Bolis");
     printChar(c);
-    //printString("\n");
+    //printChar(b);
+    printString("\n");
    // char *arr = readString(',');
    // printString(&arr[0]);
     while(1)
@@ -31,17 +31,21 @@ int main(void)
          {
              case 'r':
                  //GPIODATA port F 662
+                 printChar('a');
                  GPIOF->DATA = (1<<1);
                  break;
              case 'b':
                  //GPIODATA port F 662
+                 printChar('b');
                  GPIOF->DATA = (1<<2);
                  break;
              case 'g':
                  //GPIODATA port F 662
+                 printChar('c');
                  GPIOF->DATA = (1<<3);
                  break;
              default:
+                 printChar((char)valor);
                  GPIOF->DATA = (0<<1) | (0<<2) | (0<<3);
                  break;
          }
