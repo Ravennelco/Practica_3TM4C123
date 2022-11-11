@@ -9,13 +9,13 @@ int main(void)
     Configurar_UART0();//Yo FCLK 20MHZ Baudrate 9600
 
     //Experimento 1
-    //  Configurar_UART1(); //Saul,Fabela -fclk 25MHZ Baud-rate 57600
-    //  Configurar_UART7(); //Aleidis,Monse -fclk 50MHZ Baud-rate 57600
-    //  Configurar_UART4(); //Christian,Abiu -fclk 10MHZ Baud-rate 4800
-    //  Configurar_UART2(); //Majo,Alonso -fclk 40MHZ Baud-rate 115200
-    //  Configurar_UART3(); //Rodolfo,Leonardo -fclk 80MHZ Baud-rate 19200
-    //  Configurar_UART2(); //Pamela,Paulina -fclk 50MHZ Baud-rate 57600
-    //  Configurar_UART5(); //Jozzafat -fclk 40MHZ Baud-rate 28800
+    //  Configurar_UART1(); //Jorge,Alberto,Navarro,Saul,Fabela -fclk 25MHZ Baud-rate 57600
+    //  Configurar_UART7(); //Angel,Fernanda,Sonia,Aleidis,Monse -fclk 50MHZ Baud-rate 57600
+    //  Configurar_UART4(); //Argelia,Roxana,Yesica,Vanesa,Christian,Abiu -fclk 10MHZ Baud-rate 4800
+    //  Configurar_UART2(); //Brizet,Monse,Luis,Majo,Alonso -fclk 40MHZ Baud-rate 115200
+    //  Configurar_UART3(); //Jesus,Yesica,Carlos,Dulce,Rodolfo,Leonardo -fclk 80MHZ Baud-rate 19200
+    //  Configurar_UART2(); //Andrea,Avila,Pamela,Paulina -fclk 50MHZ Baud-rate 57600
+    //  Configurar_UART5(); //Hector,Cecilia,Carolina,Jozzafat -fclk 40MHZ Baud-rate 28800
     Configurar_GPIO();
    // Homogeneidad();
     //printString("Holis Bolis");
@@ -43,6 +43,11 @@ int main(void)
                  //GPIODATA port F 662
                  printChar('c');
                  GPIOF->DATA = (1<<3);
+                 break;
+             case 'y':
+                 //GPIODATA port F 662
+                 printChar('d');
+                 GPIOF->DATA = (1<<3) | (1<<2);
                  break;
              default:
                  printChar((char)valor);
