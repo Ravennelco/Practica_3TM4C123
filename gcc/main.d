@@ -23,7 +23,7 @@ gcc/main.o: main.c lib/include.h \
  c:\program\ files\ (x86)\gnu\ arm\ embedded\ toolchain\10\ 2021.10\arm-none-eabi\include\string.h \
  c:\program\ files\ (x86)\gnu\ arm\ embedded\ toolchain\10\ 2021.10\arm-none-eabi\include\sys\string.h \
  c:\program\ files\ (x86)\gnu\ arm\ embedded\ toolchain\10\ 2021.10\arm-none-eabi\include\math.h \
- lib/TM4C123GH6PM.h lib/../CMSIS/Include/core_cm4.h \
+ lib/TM4C1294NCPDT.h lib/../CMSIS/Include/core_cm4.h \
  lib/../CMSIS/Include/core_cmInstr.h lib/../CMSIS/Include/core_cmFunc.h \
- lib/../CMSIS/Include/core_cm4_simd.h lib/../lib/system_TM4C123.h \
- lib/GPIO.h lib/PLL.h lib/UART.h
+ lib/../CMSIS/Include/core_cm4_simd.h lib/../lib/system_TM4C129.h \
+ lib/PLL.h lib/GPIO.h lib/UART.h

@@ -5,11 +5,11 @@ extern void Configurar_UART0(void)
     SYSCTL->RCGCUART  = (1<<0);   //Paso 1 (RCGCUART) pag.344 UART/modulo0 0->Disable 1->Enable
     SYSCTL->RCGCGPIO |= (1<<0);     //Paso 2 (RCGCGPIO) pag.340 Enable clock port A
     //(GPIOAFSEL) pag.671 Enable alternate function
-    GPIOA->AFSEL = (1<<1) | (1<<0);
+    GPIOA_AHB->AFSEL = (1<<1) | (1<<0);
     //GPIO Port Control (GPIOPCTL) PA0-> U0Rx PA1-> U0Tx pag.688
-    GPIOA->PCTL = (GPIOA->PCTL&0xFFFFFF00) | 0x00000011;// (1<<0) | (1<<4);//0x00000011
+    GPIOA_AHB->PCTL = (GPIOA_AHB->PCTL&0xFFFFFF00) | 0x00000011;// (1<<0) | (1<<4);//0x00000011
     // GPIO Digital Enable (GPIODEN) pag.682
-    GPIOA->DEN = (1<<0) | (1<<1);//PA1 PA0
+    GPIOA_AHB->DEN = (1<<0) | (1<<1);//PA1 PA0
     //UART0 UART Control (UARTCTL) pag.918 DISABLE!!
     UART0->CTL = (0<<9) | (0<<8) | (0<<0);
 
