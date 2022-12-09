@@ -1,58 +1,47 @@
 #include "lib/include.h"
-
+volatile float valor,valor1;
+volatile uint16_t Result[2];
+volatile uint16_t duty;
+volatile uint16_t duty2;
+volatile uint16_t duty3;
+uint16_t count;
 int main(void)
 {
-    uint16_t valor = 0;
-    char c='5';
-    //char b='a';
-    Configurar_PLL(_25MHZ);  //Confiuracion de velocidad de reloj
-    Configurar_UART0();//Yo FCLK 20MHZ Baudrate 9600
-
     //Experimento 1
-    //  Configurar_UART1(); //Jorge,Alberto,Navarro,Saul,Fabela -fclk 25MHZ Baud-rate 57600
-    //  Configurar_UART7(); //Angel,Fernanda,Sonia,Aleidis,Monse -fclk 50MHZ Baud-rate 57600
-    //  Configurar_UART4(); //Argelia,Roxana,Yesica,Vanesa,Christian,Abiu -fclk 10MHZ Baud-rate 4800
-    //  Configurar_UART2(); //Brizet,Monse,Luis,Majo,Alonso -fclk 40MHZ Baud-rate 115200
-    //  Configurar_UART3(); //Jesus,Yesica,Carlos,Dulce,Rodolfo,Leonardo -fclk 80MHZ Baud-rate 19200
-    //  Configurar_UART2(); //Andrea,Avila,Pamela,Paulina -fclk 50MHZ Baud-rate 57600
-    //  Configurar_UART5(); //Hector,Cecilia,Carolina,Jozzafat -fclk 40MHZ Baud-rate 28800
-    Configurar_GPIO();
-   // Homogeneidad();
-    //printString("Holis Bolis");
-    printChar(c);
-    //printChar(b);
-    printString("\n");
-   // char *arr = readString(',');
-   // printString(&arr[0]);
-    while(1)
+/*Usando el modulo 0 de PWM con una frecuencia de reloj del sistema de 50,000,000 Hz
+ * junto con el generador 1  habilitar alguno de los pwm's asociados y obtener un PWM
+ * cuya frecuencia sea de 10KHz
+ */
+//Experimento 2
+/*Usando el modulo 0 de PWM con una frecuencia de reloj del sistema de 20,000,000 Hz
+ * junto con el generador 0,1,2  habilitar alguno de los pwm's asociados y obtener un PWM
+ * cuya frecuencia sea de 50Hz con tres potenciometros variar el ciclo de trabajo
+ * para controlar la posicion de tres servos sg90 o otros.
+ *
+ */
+//Experimento 3
+/*Usando el modulo 0 de PWM con una frecuencia de reloj del sistema de 20,000,000 Hz
+ * junto con el generador 0,1,2  habilitar alguno de los pwm's asociados y obtener un PWM
+ * cuya frecuencia sea de 50Hz , utilizando el uart de la practica 3
+ * se enviara dato desde interfaz de simulink para controlar la intensidad luminosa 
+ * usando un led RGB externa 
+ *
+ */
+    Configurar_PLL(_20MHZ);  //Confiuracion de velocidad de reloj
+    Configurar_UART0();//Yo FCLK 20MHZ Baudrate 9600
+    Configura_Reg_ADC0();
+    Configura_Reg_PWM1(8);
+    
+    //Experimento 0
+    count = 0;
+    duty=15999;
+    duty2=15999;
+    duty3=15999;
+
+    while (1)
     {
-         c = readChar();
-         switch(c)
-         {
-             case 'r':
-                 //GPIODATA port F 662
-                 printChar('a');
-                 GPIOF->DATA = (1<<1);
-                 break;
-             case 'b':
-                 //GPIODATA port F 662
-                 printChar('b');
-                 GPIOF->DATA = (1<<2);
-                 break;
-             case 'g':
-                 //GPIODATA port F 662
-                 printChar('c');
-                 GPIOF->DATA = (1<<3);
-                 break;
-             case 'y':
-                 //GPIODATA port F 662
-                 printChar('d');
-                 GPIOF->DATA = (1<<3) | (1<<2);
-                 break;
-             default:
-                 printChar((char)valor);
-                 GPIOF->DATA = (0<<1) | (0<<2) | (0<<3);
-                 break;
-         }
+        
     }
+    
 }
+

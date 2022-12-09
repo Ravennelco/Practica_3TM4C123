@@ -19,5 +19,7 @@
 #include "GPIO.h"
 #include "PLL.h"
 #include "UART.h"
+#include "ADC.h"
+#include "PWM.h"
 
 #endif /* INCLUDE_H_ */
